@@ -21,6 +21,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleH
         this.data = data;
     }
 
+    public List<String> getData() {
+        return data;
+    }
+
     @Override
     public ExampleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ExampleHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_example, parent, false));

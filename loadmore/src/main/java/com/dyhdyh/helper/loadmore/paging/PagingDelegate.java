@@ -1,4 +1,4 @@
-package com.dyhdyh.helper.loadmore;
+package com.dyhdyh.helper.loadmore.paging;
 
 /**
  * @author dengyuhan
@@ -17,5 +17,4 @@ public interface PagingDelegate {
 
     boolean isExistNextPage();
 
-    boolean isLastPage();
 }

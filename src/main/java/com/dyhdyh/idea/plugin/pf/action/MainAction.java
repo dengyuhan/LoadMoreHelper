@@ -2,6 +2,7 @@ package com.dyhdyh.idea.plugin.pf.action;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -27,11 +28,17 @@ public class MainAction extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         Project project = e.getProject();
         PsiFile psiFile = getManifestFile(project);
-        GroovyPsiElementFactory factory = GroovyPsiElementFactory.getInstance(e.getProject());
+        GroovyPsiElementFactory factory = GroovyPsiElementFactory.getInstance(project);
+
         GrStatement dependency = factory.createStatementFromText("compile 'com.dyhdyh:activity:1.0.1'");
         GrClosableBlock dependencies = getDependencies(psiFile);
         if (dependencies != null) {
-            dependencies.addStatementBefore(dependency, null);
+            WriteCommandAction.runWriteCommandAction(project, new Runnable() {
+                @Override
+                public void run() {
+                    dependencies.addStatementBefore(dependency, null);
+                }
+            });
         }
 
     }

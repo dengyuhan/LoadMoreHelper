@@ -1,0 +1,22 @@
+{
+  "name": "hexo-obfuscator",
+  "version": "1.0.0",
+  "description": "javascript-obfuscator hexo version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiandanin/hexo-obfuscator.git"
+  },
+  "author": "Xian Dan <denghahae@qq.com> (https://xiandan.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiandanin/hexo-obfuscator/issues"
+  },
+  "homepage": "https://github.com/xiandanin/hexo-obfuscator#readme",
+  "devDependencies": {
+    "javascript-obfuscator": "^0.18.7"
+  }
+}
